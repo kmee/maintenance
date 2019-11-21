@@ -1,0 +1,8 @@
+<odoo>
+    <record id="stock_location_maintenance" model="stock.location">
+        <field name="name">Maintenance Locations</field>
+        <field name="usage">inventory</field>
+        <field name="company_id"></field>
+        <field name="location_id" ref="stock.stock_location_locations"/>
+    </record>
+</odoo>

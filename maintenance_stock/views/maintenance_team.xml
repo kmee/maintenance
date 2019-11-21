@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 KMEE INFORMATICA LTDA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="maintenance_team_form_view">
+        <field name="name">maintenance.team.form (in maintenance_stock)</field>
+        <field name="model">maintenance.team</field>
+        <field name="inherit_id" ref="maintenance.maintenance_team_view_form"/>
+        <field name="arch" type="xml">
+            <field name="member_ids" position="after">
+                <field name="location_id"/>
+            </field>
+        </field>
+    </record>
+
+<!--    <record model="ir.ui.view" id="maintenance_team_search_view">-->
+<!--        <field name="name">maintenance.team.search (in maintenance_stock)</field>-->
+<!--        <field name="model">maintenance.team</field>-->
+<!--        <field name="inherit_id" ref="TODO othermodule.search_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.ui.view" id="maintenance_team_tree_view">-->
+<!--        <field name="name">maintenance.team.tree (in maintenance_stock)</field>-->
+<!--        <field name="model">maintenance.team</field>-->
+<!--        <field name="inherit_id" ref="TODO othermodule.tree_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.actions.act_window" id="maintenance_team_act_window">-->
+<!--        <field name="name">Maintenance Team</field> &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        <field name="res_model">maintenance.team</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--        <field name="domain">[]</field>-->
+<!--        <field name="context">{}</field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.ui.menu" id="maintenance_team_menu">-->
+<!--        <field name="name">Maintenance Team</field>-->
+<!--        <field name="parent_id" ref="xmlid of parent menu"/> &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        <field name="action" ref="maintenance_team_act_window"/>-->
+<!--        <field name="sequence" eval="16"/> &lt;!&ndash; TODO &ndash;&gt;-->
+<!--    </record>-->
+
+</odoo>

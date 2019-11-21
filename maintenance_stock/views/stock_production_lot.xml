@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 KMEE INFORMATICA LTDA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="stock_production_lot_form_view">
+        <field name="name">stock.production.lot.form (in maintenance_stock)</field>
+        <field name="model">stock.production.lot</field>
+        <field name="inherit_id" ref="idealcare_sale_rental.idealcare_stock_production_lot_form_view"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button type="object" name="action_maintenance" icon="fa-wrench" string="Enviar para manutenção" class="oe_stat_button"/>
+                <button name="action_view_maintenances" type="object" class="oe_stat_button" icon="fa-wrench">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value"><field name="maintenances_count" widget="statinfo"  nolabel="1"/></span>
+                        <span class="o_stat_text">Maintenance Requests</span>
+                    </div>
+                </button>
+            </div>
+        </field>
+    </record>
+
+    <!--    <record model="ir.ui.view" id="stock_production_lot_search_view">-->
+<!--        <field name="name">stock.production.lot.search (in maintenance_stock)</field>-->
+<!--        <field name="model">stock.production.lot</field>-->
+<!--        <field name="inherit_id" ref="TODO othermodule.search_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.ui.view" id="stock_production_lot_tree_view">-->
+<!--        <field name="name">stock.production.lot.tree (in maintenance_stock)</field>-->
+<!--        <field name="model">stock.production.lot</field>-->
+<!--        <field name="inherit_id" ref="TODO othermodule.tree_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.actions.act_window" id="stock_production_lot_act_window">-->
+<!--        <field name="name">Stock Production Lot</field> &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        <field name="res_model">stock.production.lot</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--        <field name="domain">[]</field>-->
+<!--        <field name="context">{}</field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.ui.menu" id="stock_production_lot_menu">-->
+<!--        <field name="name">Stock Production Lot</field>-->
+<!--        <field name="parent_id" ref="xmlid of parent menu"/> &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        <field name="action" ref="stock_production_lot_act_window"/>-->
+<!--        <field name="sequence" eval="16"/> &lt;!&ndash; TODO &ndash;&gt;-->
+<!--    </record>-->
+
+</odoo>

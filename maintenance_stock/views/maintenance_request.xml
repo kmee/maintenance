@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 KMEE INFORMATICA LTDA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="maintenance_request_form_view">
+        <field name="name">maintenance.request.form (in maintenance_stock)</field>
+        <field name="model">maintenance.request</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+        <field name="arch" type="xml">
+            <field name="equipment_id" position="after">
+                <field name="lot_id"/>
+            </field>
+            <div class="oe_right" position="inside">
+                <div class="oe_button_box" name="button_box">
+                    <button type="object" name="action_view_pickings" icon="fa-wrench" string="Ver Pickings" class="oe_stat_button"/>
+                </div>
+            </div>
+
+            <header position="inside">
+                <button name="action_return_from_maintenance" type="object" string="Return to use"/>
+            </header>
+        </field>
+    </record>
+
+<!--    <record model="ir.ui.view" id="maintenance_request_search_view">-->
+<!--        <field name="name">maintenance.request.search (in maintenance_stock)</field>-->
+<!--        <field name="model">maintenance.request</field>-->
+<!--        <field name="inherit_id" ref="TODO othermodule.search_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.ui.view" id="maintenance_request_tree_view">-->
+<!--        <field name="name">maintenance.request.tree (in maintenance_stock)</field>-->
+<!--        <field name="model">maintenance.request</field>-->
+<!--        <field name="inherit_id" ref="TODO othermodule.tree_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.actions.act_window" id="maintenance_request_act_window">-->
+<!--        <field name="name">Maintenance Request</field> &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        <field name="res_model">maintenance.request</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--        <field name="domain">[]</field>-->
+<!--        <field name="context">{}</field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.ui.menu" id="maintenance_request_menu">-->
+<!--        <field name="name">Maintenance Request</field>-->
+<!--        <field name="parent_id" ref="xmlid of parent menu"/> &lt;!&ndash; TODO &ndash;&gt;-->
+<!--        <field name="action" ref="maintenance_request_act_window"/>-->
+<!--        <field name="sequence" eval="16"/> &lt;!&ndash; TODO &ndash;&gt;-->
+<!--    </record>-->
+
+</odoo>
