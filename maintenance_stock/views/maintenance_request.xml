@@ -17,6 +17,9 @@
                     <button type="object" name="action_view_pickings" icon="fa-wrench" string="Ver Pickings" class="oe_stat_button"/>
                 </div>
             </div>
+            <field name="description" position="attributes">
+                <attribute name="required">True</attribute>
+            </field>
 
             <header position="inside">
                 <button name="action_return_from_maintenance" type="object" string="Return to use"/>
