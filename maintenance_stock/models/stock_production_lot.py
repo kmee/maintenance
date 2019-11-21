@@ -120,3 +120,12 @@ class StockProductionLot(models.Model):
                 for move_line in move.move_line_ids:
                     if move.product_id == move_line.product_id:
                         move_line.lot_id = lot
+
+            return {
+                'type': 'ir.actions.act_window',
+                'res_model': 'maintenance.request',
+                'view_type': 'form',
+                'view_mode': 'form',
+                'res_id': maint_request.id,
+            }
+

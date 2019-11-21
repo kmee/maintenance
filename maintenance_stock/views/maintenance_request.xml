@@ -20,6 +20,8 @@
 
             <header position="inside">
                 <button name="action_return_from_maintenance" type="object" string="Return to use"/>
+<!--                        attrs="{'invisible':[('stage_id.can_return_use','=', True)]}"-->
+
             </header>
         </field>
     </record>
