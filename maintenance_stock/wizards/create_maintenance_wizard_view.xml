@@ -10,8 +10,8 @@
         <field name="arch" type="xml">
             <form>
                 <group>
-                    <field name="maintenance_team_id"/>
-                    <field name="description" />
+                    <field name="maintenance_team_id" required="1"/>
+                    <field name="description" required="1"/>
                 </group>
                 <footer>
                     <button name="action_maintenance"
