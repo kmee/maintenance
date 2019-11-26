@@ -4,6 +4,8 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
+from parts.odoo.odoo.tools import float_is_zero
+
 
 class MaintenanceRequest(models.Model):
 
@@ -114,3 +116,22 @@ class MaintenanceRequest(models.Model):
             for move_line in return_move.move_line_ids:
                 if return_move.product_id == move_line.product_id:
                     move_line.lot_id = request.lot_id
+
+            precision_digits = self.env['decimal.precision'].precision_get(
+                'Product Unit of Measure')
+
+            no_quantities_done = all(
+                float_is_zero(
+                    move_line.qty_done, precision_digits=precision_digits)
+                for move_line in return_picking.move_line_ids.filtered(
+                    lambda m: m.state not in ('done', 'cancel'))
+            )
+            if no_quantities_done:
+                self.env['stock.immediate.transfer'].create(
+                    {'pick_ids': [(4, return_picking.id)]}
+                ).process()
+
+            elif self._get_overprocessed_stock_moves():
+                self.env['stock.overprocessed.transfer'].create(
+                    {'picking_id': return_picking.id}
+                ).process()

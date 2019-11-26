@@ -29,6 +29,7 @@
         'views/maintenance_team.xml',
         # 'security/maintenance_equipment.xml',
         'views/maintenance_equipment.xml',
+        'wizards/create_maintenance_wizard_view.xml',
     ],
     'demo': [
         # 'demo/stock_picking.xml',
