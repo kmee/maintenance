@@ -20,15 +20,8 @@ class WizardCreateMaintenance(models.TransientModel):
 
     @api.multi
     def action_maintenance(self):
-        wh = self.env['stock.warehouse'].search(
-            [('company_id', '=', self.env.user.company_id.id)], limit=1)
         for lot in self.env['stock.production.lot'].browse(
                 self.env.context.get('active_ids')):
-
-            if lot.quant_location_id != wh.rental_in_location_id:
-                raise ValidationError(_("This equipment is not in available "
-                                        "stock to go to maintenance")
-                                      )
 
             maint_equipment = self.env['maintenance.equipment'].search(
                 [('lot_id', '=', lot.id)]

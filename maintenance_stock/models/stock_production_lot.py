@@ -43,6 +43,14 @@ class StockProductionLot(models.Model):
 
     @api.multi
     def action_maintenance(self):
+        self.ensure_one()
+        wh = self.env['stock.warehouse'].search(
+            [('company_id', '=', self.env.user.company_id.id)], limit=1)
+
+        if self.quant_location_id != wh.rental_in_location_id:
+            raise ValidationError(_("This equipment is not in available "
+                                    "stock to go to maintenance")
+                                  )
         return {
             'type': 'ir.actions.act_window',
             'res_model': 'create.maintenance.wizard',
