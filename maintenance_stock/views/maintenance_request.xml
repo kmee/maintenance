@@ -20,11 +20,11 @@
             <field name="description" position="attributes">
                 <attribute name="required">True</attribute>
             </field>
-
             <header position="inside">
-                <button name="action_return_from_maintenance" type="object" string="Return to use"/>
-<!--                        attrs="{'invisible':[('stage_id.can_return_use','=', True)]}"-->
-
+                <field name="return_button_visibility" invisible="1"/>
+                <button name="action_return_from_maintenance" type="object" string="Return to use"
+                        attrs="{'invisible':[('return_button_visibility', '=', False)]}"
+                />
             </header>
         </field>
     </record>

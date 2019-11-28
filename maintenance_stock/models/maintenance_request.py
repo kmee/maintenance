@@ -21,6 +21,28 @@ class MaintenanceRequest(models.Model):
         string='Lot/Serial no',
         related='equipment_id.lot_id'
     )
+    stage_can_return_use = fields.Boolean(
+        related='stage_id.can_return_use'
+    )
+    return_button_visibility = fields.Boolean(
+        compute='compute_return_button_visibility'
+    )
+
+    @api.multi
+    def compute_return_button_visibility(self):
+        for req in self:
+            visibility = False
+            if req.stage_can_return_use:
+                visibility = True
+            if req.picking_ids and visibility == True:
+                ret_pick = req.picking_ids.filtered(
+                        lambda pick:
+                        pick.location_dest_id ==
+                        pick.move_lines[0].warehouse_id.rental_in_location_id
+                )
+                if ret_pick.state == 'done':
+                    visibility = False
+            req.return_button_visibility = visibility
 
     @api.multi
     def action_view_pickings(self):
